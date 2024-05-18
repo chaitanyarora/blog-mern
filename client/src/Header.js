@@ -23,7 +23,7 @@ export default function Header() {
     setUserInfo(null);
   }
 
-  const username = userInfo.userInfo;
+  const username = userInfo.username;
 
   return (
     <header>
