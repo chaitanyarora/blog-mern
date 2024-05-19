@@ -1,17 +1,25 @@
-export default function Post() {
+import { formatISO9075 } from "date-fns"
+import { Link } from "react-router-dom"
+
+export default function Post({_id, title, summary, cover, content, createdAt, author }) {
   return (
     <div className="post">
       <div className="image">
-        <img src="https://techcrunch.com/wp-content/uploads/2023/05/IMG_5632.jpeg?resize=768,576" alt="" />
+        <Link to={`/post/${_id}`}>
+          <img src={'http://localhost:4000/' + cover} alt="" />
+        </Link>
       </div>
 
       <div className="texts">
-        <h2>Waymo's robotaxis under investigation after crashes and traffic mishaps</h2>
+
+      <Link to={`/post/${_id}`}>
+        <h2>{title}</h2>
+        </Link>
         <p className="info">
-          <a className="author">Chaitany Arora</a>
-          <time>14-05-2024 20:44</time>
+          <a className="author">{author.username}</a>
+          <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">Waymo's autonomous vehicle software is under investigation after federal regulators received 22 reports of the robotaxis crashing or potentially violating traffic safety laws by driving in the wrong lane or into construction zones.</p>
+        <p className="summary">{summary}</p>
       </div>
     </div>
   )
