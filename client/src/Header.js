@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import { Navigate } from "react-router-dom";
 
 export default function Header() {
   const {userInfo, setUserInfo} = useContext(UserContext);
@@ -19,8 +20,9 @@ export default function Header() {
     fetch('http://localhost:4000/logout', {
       credentials: 'include',
       method: 'POST'
-    })
-    setUserInfo(null);
+    });
+    <Navigate to={'/'} />
+    setUserInfo('');
   }
 
   const username = userInfo.username;
