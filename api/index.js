@@ -6,8 +6,6 @@ const Post = require('./models/Post');
 const bcrypt = require('bcryptjs');
 
 const app = express();
-
-
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 
